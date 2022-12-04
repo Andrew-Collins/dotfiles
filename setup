@@ -1,0 +1,17 @@
+#!/bin/fish
+
+# Symlink
+function link
+    set home $HOME/.config/$argv[1]
+    rm -rf $home 
+    ln -s "$PWD/$argv[1]" $home
+end
+
+set progs foot sway fish waybar
+
+for p in $progs; link $p; end
+
+# Fishshell setup
+curl -sL https://git.io/fisher | source && fisher install jorgebucaran/fisher
+fisher update
+
