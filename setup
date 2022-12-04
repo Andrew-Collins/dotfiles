@@ -7,7 +7,7 @@ function link
     ln -s "$PWD/$argv[1]" $home
 end
 
-set progs foot sway fish waybar
+set progs foot sway fish waybar mpv
 
 for p in $progs; link $p; end
 
