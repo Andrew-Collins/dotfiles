@@ -1,15 +1,15 @@
 #!/bin/fish
 
 # Symlink
-function link
+function link_conf
     set home $HOME/.config/$argv[1]
     rm -rf $home 
     ln -s "$PWD/$argv[1]" $home
 end
 
-set progs foot sway fish waybar mpv
+set folds foot sway fish waybar mpv tmux
+for p in $folds; link_conf $p; end
 
-for p in $progs; link $p; end
 
 # Fishshell setup
 curl -sL https://git.io/fisher | source && fisher install jorgebucaran/fisher
